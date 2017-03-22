@@ -1,0 +1,103 @@
+<html>
+<title>Remote Client</title>
+<head>
+<script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../lib/handlebars.js"></script>
+<script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script>
+<script type="text/javascript" src="../js/handler.js"></script>
+
+<script type="text/javascript">
+ZOHO.embededApp.init({
+    events:{
+        DialerActive:function(){
+            alert("Telephony Dialer Activated");
+        },
+        Dial:function(data){
+            alert("Call initiated from CRM");
+        },
+        EntityPageLoad:InsideView.updateView,
+    },
+});
+	</script>
+</head>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href="https://www.zoho.com/lp/fonts/proxima-nova/stylesheet.css" rel="stylesheet" type="text/css" >
+
+<body>
+	<div id="loadingDiv" style="display: none">
+		<div class="loadingBG">&nbsp;</div>
+		<div class="loadingText">Loading...</div>
+	</div>
+	<div class="successMsg" style="display: none"></div>
+	<div id="contentDiv">
+	</div>
+      <script id='BusinessCard' type='text/x-handlebars-template'>
+      <div style="padding: 20px 0 20px 10px">
+            <div class="top-det">
+                  <ul>
+                        <li class="u-phot">
+                              <img class="ph-img" src="{{imgUrl}}">
+                        </li>
+                        <li class="mT10">
+                              <p class="f18">{{contact.email}}</p>
+                              <p>
+                                    <span class="lbl">Company:</span> <span class="u-data">{{company.name}}</span>
+                              </p>
+                              <p>
+                                    <span class="lbl">Mobile:</span> <span class="u-data">{{company.phone}}</span>
+                              </p>
+                        </li>
+                  </ul>
+            </div>
+            <div class="d-tab">
+			{{#log}}{{contact}}{{/log}}
+			{{#log}}{{company}}{{/log}}
+			{{#log}}{{contact.length}}{{/log}}
+			{{#log}}{{company.length}}{{/log}}
+                  <ul class="tabmodel1 tabNev">
+						{{#if contact}}
+                        	<li class="mL10 mt5" style="margin-left: 0;">
+                              <a href="javascript:;" id="Contact" onclick="InsideView.toggleView(this)" class="cursorpointer bcTab sel">Contact</a>
+                        	</li>
+						{{/if}}
+						{{#if company}}
+                        <li class="mt5">
+                              <a href="javascript:;" id="Company" onclick="InsideView.toggleView(this)" class="cursorpointer bcTab">Company</a>
+                        </li>
+						{{/if}}
+                  </ul>
+            </div>
+            <div class="det-tab bcView" id="ContactView">
+			{{#if contact}}
+                  <ul class="u-det-tbl">
+					{{#each contact}}
+                        <li>
+                              <p class="lbl">{{@key}}</p>
+                              <p class="u-data">{{this}}</p>
+                        </li>
+					{{/each}}
+                  </ul>
+			{{else}}
+			<div>No Data</div>
+			{{/if}}
+            </div>
+            <div class="det-tab bcView" id="CompanyView" style="display:none">
+			{{#if company}}
+                  <ul class="u-det-tbl">
+					{{#each company}}
+                        <li>
+                              <p class="lbl">{{@key}}</p>
+                              <p class="u-data">{{this}}</p>
+                        </li>
+					{{/each}}
+                  </ul>
+			{{else}}
+			<div>No Data</div>
+			{{/if}}
+            </div>
+      </div>
+      </script>
+</body>
+</html>

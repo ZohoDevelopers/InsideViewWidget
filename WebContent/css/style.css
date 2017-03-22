@@ -1,0 +1,166 @@
+*, body {
+	margin: 0;
+	padding: 0;
+}
+
+.f18 {
+	font-size: 18px;
+}
+
+.Btn, .greenBtn, .redBtn {
+	border: medium none;
+	cursor: pointer;
+	font-size: 16px;
+	height: 30PX;
+	width: 90px;
+	border-radius: 44px;
+	outline: none;
+}
+
+.greenBtn {
+	background: none repeat scroll 0 0 #98cb00;
+}
+
+.redBtn {
+	background: none repeat scroll 0 0 #f44336;
+}
+
+.whiteTxt {
+	color: white;
+}
+
+.fR {
+	float: right;
+}
+
+.fL {
+	float: left;
+}
+
+.mL10 {
+	margin-left: 10px;
+}
+
+.mR10 {
+	margin-right: 10px;
+}
+
+.pT35 {
+	padding-top: 35px
+}
+
+.material-icons {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.loadingText {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 999;
+	color: #fff;
+	width: 80px;
+	margin-left: -40px;
+	height: 20px;
+	margin-top: -10px;
+}
+
+.loadingBG {
+	background: #000;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	z-index: 999;
+	position: fixed;
+}
+
+.successMsg {
+	background: #439c28;
+	color: #FFF;
+	width: 20%;
+	padding: 3px 10px 3px 8px;
+	position: fixed;
+	border-radius: 4px;
+	left: 37%;
+}
+
+
+
+
+body{color:#444;font-family: 'proxima_nova_rgregular';font-size:16px;line-height:24px;margin:0;padding:0}
+.top-det li
+{
+	list-style-type:none;
+	float:left;
+}
+.u-det-tbl li
+{
+	list-style-type:none;
+	padding:3px 0;
+	border-bottom:solid 1px #ddd;
+}
+.u-det-tbl p.lbl, .lbl
+{
+	color:#999;
+}
+.u-det-tbl p.u-data, .u-data
+{
+	color:#222;
+	font-size:18px;
+}
+.u-phot
+{
+	width:100px;
+	margin-right:20px;
+}
+.det-tab
+{
+	clear:both;
+}
+.d-tab
+{
+	 border-bottom: 1px solid #ddd;
+    clear: both;
+    float: left;
+    margin-top: 20px;
+    padding-bottom:0;
+    width: 100%;
+}
+.d-tab li
+{
+	list-style-type:none;
+	float:left;
+	margin-left:10px;
+}
+.d-tab li a
+{
+	text-decoration:none;
+}
+.ph-img
+{
+	 border: 1px solid #ddd;
+    border-radius: 73px;
+    height: 100px;
+    width: 100px;
+}
+.mT10
+{
+	margin-top:10px;
+}
+.d-tab a
+{
+	color:#333;
+	 padding: 2px 10px;
+}
+.d-tab a.sel
+{
+	border-bottom: 2px solid #f29a43;
+}
+.f18
+{
+	font-size: 18px;
+}
