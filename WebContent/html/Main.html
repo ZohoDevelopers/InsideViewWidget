@@ -4,20 +4,51 @@
 <script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="../lib/handlebars.js"></script>
 <script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script>
-<script type="text/javascript" src="../js/handler.js"></script>
 
+
+<!-- <script type="text/javascript" src="https://localhost:4443/lib/EmbeddedAppInterface.js"></script>
+<script type="text/javascript" src="https://localhost:4443/lib/ZohoCrmHelper.js"></script> -->
+
+<script type="text/javascript" src="../js/handler.js"></script>
 <script type="text/javascript">
-ZOHO.embededApp.init({
-    events:{
-        DialerActive:function(){
-            alert("Telephony Dialer Activated");
-        },
-        Dial:function(data){
-            alert("Call initiated from CRM");
-        },
-        EntityPageLoad:InsideView.updateView,
-    },
+$(document).ready(function(){
+  Utils.showLoading();
+  ZOHO.embeddedApp.init()
+  .then(
+    InsideView.updateView
+  );
+
 });
+
+var updateRecord = {};
+window.addEventListener("message",
+  function(e)
+  {
+    if(e.origin=="https://udhaya-4387")
+    {      
+      var updatedetails = e.data.crmupdateDetails;
+      var moduledetails = e.data.moduledetails;
+      updateRecord["id"] = moduledetails.leadid;
+      for(i in updatedetails)
+      {
+        updateRecord[""+updatedetails[i].apiname+""] = updatedetails[i].insidevalue;
+      }      
+      var config={
+        Entity : moduledetails.module,
+        APIData :  updateRecord
+      }
+      ZOHO.CRM.API.updateRecord(config).then(function(data){
+        console.log("dai");
+        console.log(data);
+
+
+        return ZOHO.CRM.UI.Record.open({Entity:moduledetails.module,RecordID:moduledetails.leadid})
+      }).then(function(data){
+        console.log(data);
+      });    
+    }
+  },false
+);
 	</script>
 </head>
 
@@ -34,15 +65,15 @@ ZOHO.embededApp.init({
 	<div id="contentDiv">
 	</div>
       <script id='BusinessCard' type='text/x-handlebars-template'>
-      <div style="padding: 20px 0 20px 10px">
+      <div style="padding: 20px 0px 20px 10px">
             <div class="top-det">
                   <ul>
                         <li class="u-phot">
                               <img class="ph-img" src="{{imgUrl}}">
                         </li>
                         <li class="mT10">
-                              <p class="f18">{{contact.email}}</p>
-                              <p>
+                              <p style="font-size:20px;">{{contact.fullName}}</p>
+                              <p style="margin-top: 10px;">
                                     <span class="lbl">Company:</span> <span class="u-data">{{company.name}}</span>
                               </p>
                               <p>
@@ -97,6 +128,9 @@ ZOHO.embededApp.init({
 			<div>No Data</div>
 			{{/if}}
             </div>
+      </div>
+      <div class="updateBtn">
+        <input type="button" style="font-size:14px;padding:9px 15px" class="blueBtn" value="Update to Zoho CRM" onclick="openpopup()" />
       </div>
       </script>
 </body>
