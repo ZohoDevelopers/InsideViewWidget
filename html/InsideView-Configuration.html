@@ -8,11 +8,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
   Utils.showLoading();
+  ZOHO.embeddedApp.init().then(
+     mappingFields
+  );
 });
-setTimeout(function(){
-  mappingFields();
-  
-},1000);
 	</script>
 </head>
 
@@ -34,14 +33,7 @@ setTimeout(function(){
             <th width="30%">INSIDEVIEW FIELDS</th>
             <th width="30%">ZOHO CRM LEADS</th>
             <th width="30%">ZOHO CRM CONTACTS</th>
-            <th width="10%">
-                <input type="checkbox" class="overwrite" value="false" style="margin-left: -4px;"/>
-                <label  class="overwritelabel selectAllLabel" style="margin-top:12px"></label>
-                <div class="tooltip">
-                  <span class="helpIcon"></span>
-                  <span class="tooltiptext">The fields you choose will be checked by default in  the Zoho CRM - InsideView 'Update Details' screen.</span>
-                </div>
-            </th>
+            <th width="10%">OVERWRITE EXISTING</th>
           </tr>
           {{#each ivlabels}}
             <tr class="fieldrow">

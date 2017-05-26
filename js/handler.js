@@ -1,7 +1,7 @@
 const Const={
 		orgVariable:{
-			apiKey:"t.insideauth",
-			mappingFields:"t.fieldmapping",
+			apiKey:"insideview5.oauthtoken",
+			mappingFields:"insideview5.fieldmapping",
 		}
 }
 
@@ -377,7 +377,7 @@ function openpopup()
 		/*  Fetch Contact Details Ends here   */
 
 
-		var openwindow = window.open("https://udhaya-4387/office/insideview/newinside/InsideViewWidget/WebContent/html/updateDetails.html","updateDetails","width=1000px,height=700px,left=500px,top=100px");	
+		var openwindow = window.open("https://s3-us-west-2.amazonaws.com/zohocrm-widget/new-insideview/html/updateDetails.html","_blank","width=1000px,height=700px,left=500px,top=100px");	
 		openwindow.onload = function(){
 			//openwindow.postMessage({"ivcontact":ivcontact,"ivcompany":ivcompany,"mappingDetails":JSON.parse(mappgingDetails),"storedleadlabel":Storedleadlabel,"insideviewApiFlds":insideviewApiFlds,"currentRecordDetails":currentRecord},"*");
 			openwindow.postMessage({"allupdateInfo":allUpdateDetails,"moduledetails":moduledetails},"*");

@@ -5,10 +5,6 @@
 <script type="text/javascript" src="../lib/handlebars.js"></script>
 <script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script>
 
-
-<!-- <script type="text/javascript" src="https://localhost:4443/lib/EmbeddedAppInterface.js"></script>
-<script type="text/javascript" src="https://localhost:4443/lib/ZohoCrmHelper.js"></script> -->
-
 <script type="text/javascript" src="../js/handler.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -24,7 +20,7 @@ var updateRecord = {};
 window.addEventListener("message",
   function(e)
   {
-    if(e.origin=="https://udhaya-4387")
+    if(e.origin=="https://s3-us-west-2.amazonaws.com")
     {      
       var updatedetails = e.data.crmupdateDetails;
       var moduledetails = e.data.moduledetails;
