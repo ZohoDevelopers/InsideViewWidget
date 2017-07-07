@@ -1,0 +1,74 @@
+<html>
+<title>Remote Client</title>
+<head>
+	<script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../lib/handlebars.js"></script>
+	<script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script> 
+	<script type="text/javascript" src="../js/handler.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+<script type="text/javascript">
+var Entity;
+var EntityId
+$(document).ready(function(){
+	ZOHO.embeddedApp.on("PageLoad",function(data){
+		Entity = data.Entity;
+		EntityId = data.EntityId[0];
+	})	
+	ZOHO.embeddedApp.init().then(function(){
+		getContactDetails()
+	});
+});
+</script>
+	<div id="loadingDiv" style="display:none">
+		<div class="loadingBG">&nbsp;</div>
+		<div class="loadingText">Loading...</div>
+	</div>
+	<div id="contentDiv">
+	</div>
+	<script id='companyContacts' type='text/x-handlebars-template'>
+	{{#if contacts}}
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="newtable mT15 fL">
+			<tr>
+				<th width="10%">First Name</th>
+				<th width="10%">Last Name</th>
+				<th width="20%">Email</th>
+				<th width="15%">Department</th>
+				<th width="15%">Title</th>
+				<th width="15%">Twitter</th>
+				<th></th>
+			</tr>
+			{{#each contacts}}
+				<tr>
+					<td class="firstName">{{[First Name]}}</td>
+					<td class="lastName">{{[Last Name]}}</td>
+					<td class="email">{{Email}}</td>
+					<td class="department">{{Department}}</td>
+					<td class="title">{{Title}}</td>
+					<td class="twitter">{{Twitter}}</td>
+					<td>
+						<input type="button" class="blueBtn" value="Add to Contacts" onclick="InsertContact(this)"/>
+					</td>
+				</tr>
+			{{/each}}
+		</table>
+		{{else}}
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="newtable mT15 fL">
+				<tr>
+					<th width="10%">First Name</th>
+					<th width="10%">Last Name</th>
+					<th width="20%">Email</th>
+					<th width="15%">Department</th>
+					<th width="15%">Title</th>
+					<th width="15%">Twitter</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</table>
+			<h4 style="margin: 0 auto;text-align: center;line-height: 20;">No Contacts available for this Account</h4>
+		{{/if}}
+	</script>
+</body>
+</html>

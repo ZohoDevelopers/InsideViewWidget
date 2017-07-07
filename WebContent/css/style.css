@@ -1,6 +1,79 @@
+/*font family */
+@font-face {
+
+font-family: ProximaNovaRegular;
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.eot);
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.eot?#iefix) format('embedded-opentype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.woff) format('woff'), url(//fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.ttf) format('truetype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Reg-webfont.svg#ProximaNovaRgRegular) format('svg');
+
+font-weight: 400;
+
+font-style: normal;
+
+}
+
+@font-face {
+
+font-family: ProximaNovaLight;
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Light-webfont.eot);
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Light-webfont.eot?#iefix) format('embedded-opentype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Light-webfont.woff) format('woff'), url(//fonts.zohostatic.com/proxima/ProximaNova-Light-webfont.ttf) format('truetype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Light-webfont.svg#ProximaNovaLtLight) format('svg');
+
+font-weight: 400;
+
+font-style: normal;
+
+}
+
+@font-face {
+
+font-family: ProximaNovaThin;
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Thin-webfont.eot);
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Thin-webfont.eot?#iefix) format('embedded-opentype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Thin-webfont.woff) format('woff'), url(//fonts.zohostatic.com/proxima/ProximaNova-Thin-webfont.ttf) format('truetype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Thin-webfont.svg#ProximaNovaThThin) format('svg');
+
+font-weight: 400;
+
+font-style: normal;
+
+}
+
+@font-face {
+
+font-family: ProximaNovaLtSemibold;
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.eot);
+
+src: url(//fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.eot?#iefix) format('embedded-opentype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.woff) format('woff'), url(//fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.ttf) format('truetype'), url(//fonts.zohostatic.com/proxima/ProximaNova-Sbold-webfont.svg#ProximaNovaLtSemibold) format('svg');
+
+font-weight: 400;
+
+font-style: normal;
+
+}
+
+@font-face {
+
+font-family: ProximaNovaXbold;
+
+src: url(//fonts.zohostatic.com/proximanova/proximanova_extrabold_macroman/ProximaNova-Xbold-webfont.eot);
+
+src: url(//fonts.zohostatic.com/proximanova/proximanova_extrabold_macroman/ProximaNova-Xbold-webfont.eot?#iefix) format('embedded-opentype'), url(//fonts.zohostatic.com/proximanova/proximanova_extrabold_macroman/ProximaNova-Xbold-webfont.woff) format('woff'), url(//fonts.zohostatic.com/proximanova/proximanova_extrabold_macroman/ProximaNova-Xbold-webfont.ttf) format('truetype'), url(//fonts.zohostatic.com/proximanova/proximanova_extrabold_macroman/ProximaNova-Xbold-webfont.svg#ProximaNovaThExtrabold) format('svg');
+
+font-weight: normal;
+
+    font-style: normal;
+
+}
+/*ends here*/
 *, body {
 	margin: 0;
 	padding: 0;
+	font-family: "ProximaNovaRegular",Arial,sans-serif;
+	outline:none;
 }
 
 .f18 {
@@ -16,7 +89,17 @@
 	border-radius: 44px;
 	outline: none;
 }
-
+.saveBtn {
+	border: medium none;
+	cursor: pointer;
+	font-size: 16px;
+	height: 30PX;
+	width: 90px;
+	outline: none;
+	padding:4px 15px;
+	background: red;
+	color:#fff;
+}
 .greenBtn {
 	background: none repeat scroll 0 0 #98cb00;
 }
@@ -73,7 +156,7 @@
 	background: #000;
 	width: 100%;
 	height: 100%;
-	opacity: 0.8;
+	opacity: 1;
 	z-index: 999;
 	position: fixed;
 }
@@ -91,7 +174,13 @@
 
 
 
-body{color:#444;font-family: 'proxima_nova_rgregular';font-size:16px;line-height:24px;margin:0;padding:0}
+body
+{
+	color:#444;
+	font-size:16px;
+	line-height:24px;
+	margin:0;padding:0
+}
 .top-det li
 {
 	list-style-type:none;
@@ -100,12 +189,16 @@ body{color:#444;font-family: 'proxima_nova_rgregular';font-size:16px;line-height
 .u-det-tbl li
 {
 	list-style-type:none;
-	padding:3px 0;
+	padding:10px 0;
 	border-bottom:solid 1px #ddd;
 }
 .u-det-tbl p.lbl, .lbl
 {
 	color:#999;
+}
+.lbl
+{
+	text-transform: capitalize;
 }
 .u-det-tbl p.u-data, .u-data
 {
@@ -164,3 +257,290 @@ body{color:#444;font-family: 'proxima_nova_rgregular';font-size:16px;line-height
 {
 	font-size: 18px;
 }
+.newSelect {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+.newSelect select{
+	overflow: hidden;
+	padding: 3px;
+	margin: 0;
+	background: #fff;
+	border: 1px solid #ccc;
+	outline: none;
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	-webkit-padding-end: 20px;
+	-webkit-padding-before: 5px;
+	-webkit-padding-after: 5px;
+	-webkit-padding-start: 5px;
+	color: #222;
+	text-shadow: 0 0 0 #000;
+}
+.newSelect:before {
+	content: '';
+	right: 2px;
+	top: 1px;
+	width: 19px;
+	height: 22px;
+	background: #fff;
+	position: absolute;
+	pointer-events: none;
+	display: block;
+	content: ''\9;
+	width: 0px\9;
+	height: 0px\9;
+	background: none\9;
+}
+
+.newSelect:after {
+	content: url("../images/arrow.png");
+	background-position: 20px 10px;
+	right: 10px;
+	top: 15px;
+	padding: 0 0 2px;
+	position: absolute;
+	pointer-events: none;
+	-webkit-padding-before: 1px;
+	width: 0px\9;
+	height: 0px\9;
+}
+tr.fieldrow td {
+    padding: 10px;
+
+}
+.fieldrow
+{
+	border-top:1px solid #444;
+}
+.mappingDiv
+{
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+}
+.newtable {
+    border-collapse: collapse;
+    border-left: 1px dotted #F5F5F5;
+    border-right: 1px dotted #F5F5F5;
+    border-spacing: 0;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.newtable th {
+    font-size:13px;
+    padding: 9px 0 9px 10px;
+}
+.f13
+{
+	font-size:13px;
+}
+.newtable th{
+    color: #444444;
+    text-align: left;
+    border-bottom: 4px double #e8e4e4;
+    padding: 9px 0 20px 12px;
+    empty-cells: bold;
+}
+.newtable td,.updateTable td {
+    border-bottom: 1px solid #e8e4e4;
+    empty-cells: show;
+    font-weight: normal;
+    padding: 9px 0 9px 12px;
+    text-align: left;
+}
+.updateTable
+{
+	width:100%;
+	margin-top: 15px;
+}
+.configHead
+{
+    position: relative;
+    left: 155px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-weight:normal;
+}
+#leadfields,#contactfields
+{
+	height: 35px;
+    width: 200px;
+    font-size: 14px;
+}
+.updateBtn
+{
+	text-align:center;
+}
+.blueBtn
+{
+	border: 1px solid #42a2eb;
+    background: #13a9d6;
+    color: #fff;
+    padding: 5px 15px;
+    margin: 0 auto 0px 10px;
+    background: #42a2eb;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size:16px;
+}
+.successBtn
+{
+	border: 1px solid #19bc7d;
+    background: #13a9d6;
+    color: #fff;
+    padding: 5px 15px;
+    margin: 0 auto 0px 10px;
+    background: #19bc7d;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size:16px;
+}
+#CompanyView,#ContactView
+{
+	overflow: auto;
+	height:555px;
+}
+.crmlabelapi,.insidevalue
+{
+	border:none;
+	font-size:16px;
+}
+.spaceColumn
+{
+	border:none !important;
+}
+.btns
+{
+	margin-top:15px;
+}
+.whiteBtn
+{
+	border: 1px solid #eae0e0;
+    background: #fff;
+    color: #333;
+    padding: 8px 15px;
+    margin: 0 auto 0px 10px;
+    cursor:pointer;
+    font-size: 16px;
+}
+.overwrite,.overwriteval
+{
+	visibility: hidden;
+}
+.checked
+{
+	background-image: url(../images/checkbox.png);
+    width: 20px;
+    height: 20px;    
+    position: absolute;
+    background-position: -26px -40px;
+}
+.helpIcon
+{
+    background-image: url(../images/checkbox.png);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-position: -9px -78px;
+    margin-left: 25px;
+}
+.unchecked,.selectAllLabel
+{
+	background-image: url(../images/checkbox.png);
+    width: 19px;
+    height: 20px;    
+    position: absolute;
+    background-position: -9px -40px;
+}
+.blueCheck
+{
+	background-image: url(../images/checkbox.png);
+    width: 20px;
+    height: 20px;    
+    position: absolute;
+    background-position: -6px -6px;
+}
+.blueUncheck
+{
+	background-image: url(../images/checkbox.png);
+    width: 20px;
+    height: 20px;    
+    position: absolute;
+    background-position: -30px -6px;
+}
+.success{
+	background: #ffffff;
+    border: 1px solid #42a2eb;
+    color: #0e0e0e;
+    font-size: 15px;
+    left: 50%;
+    margin-left: -200px;
+    width: 400px;
+    padding: 5px 10px;
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    z-index: 9999;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+        visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 3px;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/*.overwritelabel::after
+{
+	position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #a7a7a7;
+    content: "";
+    margin-left: 5px;
+}
+.checked::before
+{
+	content: "";
+    position: absolute;
+    border-left: 2px solid #9e9e9e;
+    border-bottom: 2px solid #868282;
+    width: 15px;
+    height: 5px;
+    transform: rotate(-53deg);
+    margin-left: 8px;
+    margin-top: 0px;
+}
+.checked::after
+{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #a7a7a7;
+    content: "";
+    margin-left: 5px;
+}*/

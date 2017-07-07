@@ -1,0 +1,74 @@
+<html>
+<title>Remote Client</title>
+<head>
+<script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../lib/handlebars.js"></script>
+<script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script>
+<script type="text/javascript" src="../js/handler.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  Utils.showLoading();
+  ZOHO.embeddedApp.init().then(
+     mappingFields
+  );
+});
+	</script>
+</head>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<body>
+<div class="success" style="display: none;">Configuration Saved Successfully!.</div>
+	<div id="loadingDiv" style="display: none">
+		<div class="loadingBG">&nbsp;</div>
+		<div class="loadingText">Loading...</div>
+	</div>
+  <h2 class="configHead">Inside View Configuration</h2>
+	<div id="contentDiv" class="mappingDiv">
+      <script id='Fieldsmapping' type='text/x-handlebars-template'>
+      <form id="fieldsmappingconfig">
+        <table class="newtable" style="width:100%">
+          <tr>
+            <th width="30%">INSIDEVIEW FIELDS</th>
+            <th width="30%">ZOHO CRM LEADS</th>
+            <th width="30%">ZOHO CRM CONTACTS</th>
+            <th width="10%">OVERWRITE EXISTING</th>
+          </tr>
+          {{#each ivlabels}}
+            <tr class="fieldrow">
+              <td width="30%" class="ivcolumn"><p class="ivlabel">{{this}}</p></td>
+              <td width="30%" class="leadcolumn">
+                <div class="newSelect">
+                  <select id="leadfields">
+                    {{#each ../leadslabels}}
+                      <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </td>
+              <td width="30%" class="contactcolumn">
+                <div class="newSelect">
+                  <select id="contactfields">
+                    {{#each ../contactslabels }}
+                      <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </td>
+              <td width="10%" class="overwritecolumn">
+                <input type="checkbox" class="overwrite" value="false" onclick="toggleOverwrite(this)" id="box{{this}}"/>
+                <label for="box{{this}}" class="overwritelabel" onclick="checkoverwrite(this)">
+              </td>
+            </tr>
+          {{/each}}
+        </table>
+        <div id="submitform" style="margin: 0 auto 20px;text-align: center;">
+          <input class="blueBtn f13" style="margin-top:10px" type="button" value="Save" onclick="save()"/>
+        </div>
+      </form>
+      </script>
+
+  </div>
+</body>
+</html>
