@@ -3,7 +3,11 @@
 <head>
 <script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="../lib/handlebars.js"></script>
+<<<<<<< HEAD:WebContent/html/Main.html
 <script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script> 
+=======
+<script type="text/javascript" src="../lib/ZohoEmbededAppSDK.min.js"></script>
+>>>>>>> 075ebf38378df5cec7da6e851bcfc9cc28c11a3f:html/Main.html
 
 <script type="text/javascript" src="../js/handler.js"></script>
 <script type="text/javascript">
@@ -20,8 +24,12 @@ var updateRecord = {};
 window.addEventListener("message",
   function(e)
   {
+<<<<<<< HEAD:WebContent/html/Main.html
     console.log(e.origin);
     if(e.origin==Const.conf.serverUrl)
+=======
+    if(e.origin=="https://s3-us-west-2.amazonaws.com")
+>>>>>>> 075ebf38378df5cec7da6e851bcfc9cc28c11a3f:html/Main.html
     {      
       var updatedetails = e.data.crmupdateDetails;
       var moduledetails = e.data.moduledetails;
